@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
 import axios from 'axios';
 
 const anys = ref([]);
@@ -9,7 +8,6 @@ onMounted(async () => {
   try {
     const response = await axios.get('https://analisi.transparenciacatalunya.cat/resource/rsgi-8ymj.json');
     
-    // Filtrar los años dentro del rango deseado y eliminar duplicados
     const anysUnics = new Set();
     response.data.forEach(item => {
       if (item.any >= 2020 && item.any <= 2025) {
@@ -17,7 +15,7 @@ onMounted(async () => {
       }
     });
 
-    anys.value = Array.from(anysUnics).sort((a, b) => a - b); // Ordenar los años de menor a mayor
+    anys.value = Array.from(anysUnics).sort((a, b) => a - b);
   } catch (error) {
     console.error('Error al obtener los datos:', error);
   }

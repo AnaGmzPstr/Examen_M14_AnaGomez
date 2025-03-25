@@ -15,7 +15,6 @@ onMounted(async () => {
     const response = await axios.get('https://analisi.transparenciacatalunya.cat/resource/rsgi-8ymj.json');
     datos.value = response.data;
 
-    const filteredData = datos.value.filter(item => item.any === anyAux.value);
 
     datos.value.forEach(element => {
         if(!centresFiltrats.has(element.tipus_de_centres)){
@@ -30,7 +29,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <button @click="$router.back()">⬅ Tornar</button>
+    <button @click="$router.back()">Tornar</button>
   <h2>Any seleccionat: {{ anyAux }}</h2>
   <h3>Tipus de Centres</h3>
   <ul>

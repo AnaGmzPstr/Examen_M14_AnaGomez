@@ -6,3 +6,14 @@
         </ul>
     </nav>
 </template>
+
+<style>
+    nav {
+        background-color: #f1f1f1;
+        padding: 10px;
+    }
+    .link {
+        margin-right: 10px;
+    }
+
+</style>
